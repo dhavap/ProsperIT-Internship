@@ -1,8 +1,8 @@
 
 # Python Live Project
-During my sprint, I worked in a team to complete stories on a Python Live Project using the Django Framework. This was a full-stack project to create a hobby tracking app. I worked on an app to keep track of pets, specifically cats. This can easily be altered to include different types of pets. User input is obtained to add the pets to the database, as shown below. I implemented CRUD functionality. I utilised function-based views in this app.
+During my sprint, I worked in a team to complete work items on a Python Live Project using the Django Framework. This was a full-stack project to create a hobby tracking app. I worked on an app to keep track of pets, specifically cats. This can easily be altered to include different types of pets. User input is obtained to add the pets to the database, as shown below. I implemented CRUD functionality. I utilised function-based views in this app.
 ## Tech used
-For this project, I used Django, Python, HTML and CSS. We used Azure Devops in conjunction with Git for version control. The IDE used was Pycharm.
+For this project, I used Django, Python, Beautiful Soup, SQLite, HTML and CSS. We used Azure Devops in conjunction with Git for version control. The IDE used was Pycharm.
 
 ## Features
 ### Create
@@ -67,21 +67,6 @@ def delete_cat(request, id): # delete cat details
     return render(request, 'CatCare/cat_delete.html', context)
 ```
 
-## Future possibilities
-In future, I hope to expand upon this app to create a full project complete with user authentication. My intention is to eventually create a project that resembles the systems vet clinics use to keep track of their patients. 
-
-
-
-# Back End Live Project
-<h2>Introduction</h2>
-As a student of The Tech Academy, I worked on Python live project for a 2-week sprint. I got to experience working on an ongoing project in a team of fellow software developers. This repository provides an overview of the stories I worked on. I used the Django framework for this project. 
-
-I have included descriptions of the stories I worked on below, along with screenshots of my code snippets from the project.I have also included some files containing the full code I created for this project in this repository.
-
-## Tech used
-For this story, I used Python, Django, and Beautiful Soup. Azure Devops was used to manage the project. The IDE used was Visual Studio Code.
-
-## Features
 ### Web Scraping
 I was tasked with extracting data from a Wikipedia page on the timeline of space exploration. I created a dropdown list allowing users to select the decade of space exploration they wished to view. Upon receiving user input, I then used Beautiful Soup to parse and extract the relevant data from the webpage. This was a new technology I had to learn to complete this story. I then used Pandas to create a table out of the parsed data and rendered this table display on the result page. 
 
