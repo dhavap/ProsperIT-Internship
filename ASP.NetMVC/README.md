@@ -301,74 +301,7 @@ _CreateNews.cshtml
 ```
 
 
-# Front-End-Live-Project
-Together with a team, I worked on a front end live project sprint. This project was built using the .Net framework. 
-
-<h4>Button styling issues</h4>
-Some of the buttons were not displaying the required styling. I used the page inspect tool on my browser to figure out why the styling was not being applied and realised that it was a matter of increasing specificity. In some cases, I added a class, in others, I had to add an Id to the button. This allowed me to override the current styling
-<br>
-
-```
-/*============== UNREGISTERED USER PAGE STYLING ================*/ 
-#createBtn a {
-    text-decoration: none;
-    color: white
-}
-
-/*========= fix btn style issues on createUserRequest/Confirmationcode page =======*/
-.buttonStyle a {
-    text-decoration: none;
-    color: white;
-}
-
-/*=========FORGOT PASSWORD PAGE STYLING ========*/
-#submitEmailBtn{
-    background: none;
-}
-```
-
-<h4>Side Navbar push content when open</h4>
-The navbar had been overlapping with the page content when opened. My task was to push the content when the navbar opens, while making the content responsive so that the user would not need to scroll horizontally. To do this, I used Javascript to add a class to the container when the navbar opens up. This allowed me to change the styling in a responsive manner.
-
-```
-site.css
-
-/*===== MOVE BODY WHEN NAVBAR OPENS =====*/
-#dashboardContainer .originalContainer {
-    transform: translateX(0);
-}
-
-#dashboardContainer.moveContainer{
-    transform:translateX(160px);
-    width: calc(100% - 160px);
-}
-```
-
-```
-site.js
-
-// BEGIN SIDE NAVBAR OPEN/CLOSE
-$(document).ready(function () {
-    $('#open-menu').on('click', function () {
-        $('#menu').toggleClass('active');
-        //alert("Menu open");
-        $('#left-half').css({ "margin-left": "-95px" });
-        $('.originalContainer').toggleClass('moveContainer');
-    
-    });
-});
-
-$(document).ready(function () {
-    $('#dismiss').on('click', function () {
-        $('#menu').toggleClass('active');
-        //alert("Menu close");
-        $('#left-half').css({ "margin-left": "-10px" });
-        $('.originalContainer').toggleClass('moveContainer');
-    });
-});  
-```
-
-<h4>Horizontal navbar animation</h4>
+### Navbar scroll animation
 My task was to make the horizontal navbar sticky. I was also asked to animate the navbar any way I see fit on scroll. This involved changing the styling on the CSS page as well as introducing some Javascript. 
 <br>I changed the position of the navbar to absolute and moved it to the left top most corner. There were many nested elements in this navbar so any change tended to cause other unintended changes as well. Using developer tools, I was able to experiment and figure out how to solve the problems before actually changing the code. This proved to be far more efficient that changing the code on my branch and refreshing the page each time. 
 
@@ -454,7 +387,72 @@ $(function () {
     });
 ```
 
-<h4>Calendar styling issues</h4>
+###Button styling issues
+Some of the buttons were not displaying the required styling. I used the page inspect tool on my browser to figure out why the styling was not being applied and realised that it was a matter of increasing specificity. In some cases, I added a class, in others, I had to add an Id to the button. This allowed me to override the current styling
+<br>
+
+```
+/*============== UNREGISTERED USER PAGE STYLING ================*/ 
+#createBtn a {
+    text-decoration: none;
+    color: white
+}
+
+/*========= fix btn style issues on createUserRequest/Confirmationcode page =======*/
+.buttonStyle a {
+    text-decoration: none;
+    color: white;
+}
+
+/*=========FORGOT PASSWORD PAGE STYLING ========*/
+#submitEmailBtn{
+    background: none;
+}
+```
+
+### Side Navbar push content when open
+The navbar had been overlapping with the page content when opened. My task was to push the content when the navbar opens, while making the content responsive so that the user would not need to scroll horizontally. To do this, I used Javascript to add a class to the container when the navbar opens up. This allowed me to change the styling in a responsive manner.
+
+```
+site.css
+
+/*===== MOVE BODY WHEN NAVBAR OPENS =====*/
+#dashboardContainer .originalContainer {
+    transform: translateX(0);
+}
+
+#dashboardContainer.moveContainer{
+    transform:translateX(160px);
+    width: calc(100% - 160px);
+}
+```
+
+```
+site.js
+
+// BEGIN SIDE NAVBAR OPEN/CLOSE
+$(document).ready(function () {
+    $('#open-menu').on('click', function () {
+        $('#menu').toggleClass('active');
+        //alert("Menu open");
+        $('#left-half').css({ "margin-left": "-95px" });
+        $('.originalContainer').toggleClass('moveContainer');
+    
+    });
+});
+
+$(document).ready(function () {
+    $('#dismiss').on('click', function () {
+        $('#menu').toggleClass('active');
+        //alert("Menu close");
+        $('#left-half').css({ "margin-left": "-10px" });
+        $('.originalContainer').toggleClass('moveContainer');
+    });
+});  
+```
+
+
+### Calendar styling issues
 The app had a calendar that displayed employees' work schedules. I was tasked with fixing certain styling issues. Firstly, the calendar rendered with a vertical scrollbar. I changed the content height to auto so that it fits better within its container. The buttons at the top of the calendar were also aligned to the left. Ispaced it out so that it fits more evenly across the calendar. Lastly, the save event modal popped up to the side of the page and had to be dragged over to be seen by the user. I fixed this by changing the positioning of the modal. I also changed the width of its content to better fit the modal.
 
 ```
