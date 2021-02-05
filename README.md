@@ -11,8 +11,8 @@ I gained a much better understanding of URL routing, querying the database and w
 
 ## [ASP.Net MVC with Entity Framework](https://github.com/dhavap/ProsperIT-Internship/tree/main/ASP.NetMVC)
 The next project I worked on used ASP.Net MVC with Entity Framework. This was also a full stack project. We worked on an employee management portal for a local construction company. 
-- I was tasked with adding the forgot password feature, complete with the sending of a password reset email. 
-- I also added a modal partial view to allow users to submit a form anywhere on the site. 
+- I implemented the forgot password feature, complete with the sending of a password reset email. 
+- I also created a modal partial view to allow users to submit a form anywhere on the site. 
 - I added scroll animations to the navbar and 
 - worked on fixing various front end bugs. 
 
