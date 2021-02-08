@@ -10,7 +10,7 @@ For this project, I used Django, Python, Beautiful Soup, SQLite, HTML and CSS. W
 I was tasked with extracting data from a Wikipedia page on the timeline of space exploration. I created a dropdown list allowing users to select the decade of space exploration they wished to view. Upon receiving user input, I then used Beautiful Soup to parse and extract the relevant data from the webpage. This was a new technology I had to learn to complete this story. I then used Pandas to create a table out of the parsed data and rendered this table display on the result page. 
 
 
-```
+```Python
 #============== Rendering page with decade options for user to choose from
 def space_exploration(request):
     decades = {'decades' : DECADE_OPTIONS}
@@ -53,7 +53,7 @@ def result(request, decade):  #pass the user selected variable 'decade' into the
 
 ### Create
 I first needed to determine what data a user may want to store about their pet. I created a [class](https://github.com/dhavap/Python-Live-Project/blob/master/models.py) that contained fields for data I wanted to store such as age, medical conditions, and vet details. I used the modelform class to quickly create a [form](https://github.com/dhavap/Python-Live-Project/blob/master/forms.py) for users to fill in.
-```
+```Python
 def add_cat(request): # add cat to db
     form = CatForm(request.POST or None)
     if form.is_valid():
@@ -69,7 +69,7 @@ A limited number of details of the cats saved to the database are displayed on t
 
 ### Read
 I created 2 different functions to allow the user to view stored data. The first, named the index page in this app, queried the database for all items stored in the table , which was then rendered on a [template](https://github.com/dhavap/Python-Live-Project/blob/master/cat_index.html).
-```
+```Python
 def index(request):  # list of cats in db
     get_cats = Cat.Cats.all()
     print(Cat.cat_name)
@@ -77,7 +77,7 @@ def index(request):  # list of cats in db
     return render(request, 'CatCare/cat_index.html', context)
 ```
 My next task was to create a details page, should a user choose to view further details about a single pet. Here, I needed to pass a variable, in this case the pet's id, through the url from the index page. I queried the database to obtain data about the cat chosen by the user.
-```
+```Python
 def details_cat(request, id): # display cat details onclick from index page
     id = int(id)
     cat = get_object_or_404(Cat, pk=id)
@@ -86,7 +86,7 @@ def details_cat(request, id): # display cat details onclick from index page
 ```
 ### Update
 Users also needed to be able to update information about their pets, such as if the pet's vet has changed. 
-```
+```Python
 def edit_cat(request, id): # edit cat details
     id = int(id)
     cat = get_object_or_404(Cat, pk=id)
@@ -102,7 +102,7 @@ def edit_cat(request, id): # edit cat details
 
 ### Delete
 Lastly, the user may also wish to stop tracking the cat. In which case, they may wish to delete the cat from the database. 
-```
+```Python
 def delete_cat(request, id): # delete cat details
     id = int(id)
     cat = get_object_or_404(Cat, pk=id)
