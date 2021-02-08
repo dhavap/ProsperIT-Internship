@@ -8,7 +8,7 @@ This project was created using C#, the .Net Framework and Entity Framework. Azur
 ### Forgot Password Implementation
 In the login page, employees needed to be able to reset their password if they had forgotten it. I was tasked with implementing this. The employee first keys in the email address associated with their account in the forgot password form. I used Simple Mail Transfer Protocol(SMTP) to send a password reset email to aforementioned email address. If the email cannot be found in the database, a user-friendly error message is displayed informing the employee that the email does not exist and that they should register instead. 
 
-```
+```C#
 AccountController.cs
 
 // GET: /Account/ForgotPassword
@@ -105,7 +105,7 @@ AccountController.cs
         }
 ```
 
-```
+```C#
 SendEmails.cs
 
 namespace ManagementPortal.Helpers
@@ -180,13 +180,13 @@ namespace ManagementPortal.Helpers
 ### Create News Modal
 Employees were able to create news items but had to go to a separate create page to do so. My task was to create a News Item Modal that could be accessed from anywhere in the app. I created a modal that had the same fields as the Create Page for Company News. I then utilized jQuery to save the news item to the database. I created a link for this modal from the employee dashboard. 
 
-```
+```C#
 Dashboard.cshtml
 
 <h4>@{Html.RenderAction("_CreateNews", "CompanyNews");}</h4> 
 ```
 
-```
+```C#
 CompanyNewsController.cs
 
 //Partial view of CreateNews Modal
@@ -211,7 +211,7 @@ CompanyNewsController.cs
         }
 ```
 
-```
+```cshtml
 _CreateNews.cshtml
 
 @using ManagementPortal.Models
@@ -305,7 +305,7 @@ _CreateNews.cshtml
 My task was to make the horizontal navbar sticky. I was also asked to animate the navbar any way I see fit on scroll. This involved changing the styling on the CSS page as well as introducing some Javascript. 
 <br>I changed the position of the navbar to absolute and moved it to the left top most corner. There were many nested elements in this navbar so any change tended to cause other unintended changes as well. Using developer tools, I was able to experiment and figure out how to solve the problems before actually changing the code. This proved to be far more efficient that changing the code on my branch and refreshing the page each time. 
 
-```
+```css
 site.css
 
 /*===== FIX NAVBAR TO TOP LEFT CORNER =====*/
@@ -361,7 +361,7 @@ header {
 }   
 ```
 
-```
+```javascript
 site.js
 
 // CHANGE NAVBAR COLOR ON SCROLL
@@ -391,7 +391,7 @@ $(function () {
 Some of the buttons were not displaying the required styling. I used the page inspect tool on my browser to figure out why the styling was not being applied and realised that it was a matter of increasing specificity. In some cases, I added a class, in others, I had to add an Id to the button. This allowed me to override the current styling
 <br>
 
-```
+```css
 /*============== UNREGISTERED USER PAGE STYLING ================*/ 
 #createBtn a {
     text-decoration: none;
@@ -413,7 +413,7 @@ Some of the buttons were not displaying the required styling. I used the page in
 ### Side Navbar push content when open
 The navbar had been overlapping with the page content when opened. My task was to push the content when the navbar opens, while making the content responsive so that the user would not need to scroll horizontally. To do this, I used Javascript to add a class to the container when the navbar opens up. This allowed me to change the styling in a responsive manner.
 
-```
+```css
 site.css
 
 /*===== MOVE BODY WHEN NAVBAR OPENS =====*/
@@ -427,7 +427,7 @@ site.css
 }
 ```
 
-```
+```javascript
 site.js
 
 // BEGIN SIDE NAVBAR OPEN/CLOSE
@@ -455,7 +455,7 @@ $(document).ready(function () {
 ### Calendar styling issues
 The app had a calendar that displayed employees' work schedules. I was tasked with fixing certain styling issues. Firstly, the calendar rendered with a vertical scrollbar. I changed the content height to auto so that it fits better within its container. The buttons at the top of the calendar were also aligned to the left. Ispaced it out so that it fits more evenly across the calendar. Lastly, the save event modal popped up to the side of the page and had to be dragged over to be seen by the user. I fixed this by changing the positioning of the modal. I also changed the width of its content to better fit the modal.
 
-```
+```css
 /*===== SPACE OUT THE BUTTONS AT THE TOP OF THE CALENDAR =====*/
 .fc-header-toolbar {
         font-size: 14px;
@@ -498,7 +498,7 @@ The app had a calendar that displayed employees' work schedules. I was tasked wi
 
 ```
 
-```
+```cshtml
 index.cshtml
 
 function GenerateCalendar(events) {
