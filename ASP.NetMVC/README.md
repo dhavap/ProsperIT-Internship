@@ -387,7 +387,7 @@ $(function () {
     });
 ```
 
-###Button styling issues
+### Button styling issues
 Some of the buttons were not displaying the required styling. I used the page inspect tool on my browser to figure out why the styling was not being applied and realised that it was a matter of increasing specificity. In some cases, I added a class, in others, I had to add an Id to the button. This allowed me to override the current styling
 <br>
 
